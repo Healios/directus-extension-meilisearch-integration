@@ -1,0 +1,36 @@
+{
+	"name": "directus-extension-meilisearch-integration",
+	"description": "An extension that integrates Meilisearch with Directus.",
+	"icon": "extension",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-extension-hook"
+	],
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"directus:extension": {
+		"type": "hook",
+		"path": "dist/index.js",
+		"source": "src/index.ts",
+		"host": "^10.10.0"
+	},
+	"scripts": {
+		"build": "directus-extension build",
+		"dev": "directus-extension build -w --no-minify",
+		"link": "directus-extension link"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "11.0.9",
+		"@types/node": "^22.1.0",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"flat": "^6.0.1",
+		"meilisearch": "^0.41.0",
+		"string-strip-html": "^13.4.8"
+	}
+}
