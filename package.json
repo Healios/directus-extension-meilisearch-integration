@@ -2,7 +2,7 @@
 	"name": "directus-extension-meilisearch-integration",
 	"description": "An extension that integrates Meilisearch with Directus.",
 	"icon": "extension",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Marcus Raevmann Brown",
 	"repository": {
 		"type": "git",
