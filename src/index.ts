@@ -166,14 +166,18 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 				// Get entity id.
 				const entityId = meta.keys[0];
 				
-				// Get entity from database.
-				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.Filter });
-				if (entities.length === 0) return;
-				const entity = entities[0];
-				
 				// Get index.
 				const index = client.index(configuration.Collection);
-				
+
+				// Get entity from database.
+				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.Filter });
+				if (entities.length === 0) {
+					// The entity no longer conforms to the specified filter, so we remove it from meilisearch.
+					await index.deleteDocument(entityId);
+					return;
+				}
+				const entity = entities[0];
+
 				// Add meilisearch document.
 				const flattenedEntity = flattenAndStripHtml(entity);
 				const task = await index.updateDocuments(flattenedEntity);
