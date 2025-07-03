@@ -72,7 +72,7 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 						const pageSize = 100;
 						for(let offset = 0;;offset += pageSize)
 						{
-							const entities = await itemsService.readByQuery({ fields: configuration.Fields, limit: pageSize, offset: offset }) as any;
+							const entities = await itemsService.readByQuery({ fields: configuration.Fields, filter: configuration.Filter, limit: pageSize, offset: offset }) as any;
 							const flattenedEntities = [];
 							
 							if (!entities || !entities.length) break;
