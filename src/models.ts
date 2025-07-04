@@ -1,15 +1,18 @@
 class CollectionConfiguration
 {
-    constructor(collection: string, filter: object, fields: string[])
+    constructor(collection: string, queryFilter: object, actionFilter: object, fields: string[])
     {
         this.Collection = collection;
-        this.Filter = filter;
+        this.QueryFilter = queryFilter;
+        this.ActionFilter = actionFilter;
         this.Fields = fields;
     }
 
     public Collection: string;
 
-    public Filter: object;
+    public QueryFilter: object;
+
+    public ActionFilter: object;
 
     public Fields: string[];
 }
@@ -22,7 +25,7 @@ export class MeilisearchSettings
         this.Key = (data as any).api_key;
 
         const configurationData = (data as any).collections_configuration;
-        this.CollectionsConfiguration = configurationData.map((config: any) => new CollectionConfiguration(config.collection, config.filter, config.fields));
+        this.CollectionsConfiguration = configurationData.map((config: any) => new CollectionConfiguration(config.collection, config.queryFilter, config.actionFilter, config.fields));
     }
 
     public Host: string;

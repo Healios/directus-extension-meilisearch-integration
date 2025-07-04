@@ -11,7 +11,7 @@ const flattenAndStripHtml = (object : any) : any =>
     for(const key of Object.keys(flattenedObject))
     {
         // Delete properties that are subproperties of a content type and aren't interested in including in a meilisearch document.
-        if ((key.includes("blocks") || key.includes("content")) && !(key.endsWith(".title") || key.endsWith(".content") || key.endsWith(".text") || key.endsWith(".caption") || key.endsWith(".description") || key.endsWith(".summary")))
+        if ((key.includes("blocks") || key.includes("nodes") || key.includes("content")) && !(key.endsWith(".title") || key.endsWith(".content") || key.endsWith(".text") || key.endsWith(".caption") || key.endsWith(".description") || key.endsWith(".summary")))
         {
             delete flattenedObject[key];
             continue;
