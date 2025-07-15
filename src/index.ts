@@ -78,7 +78,12 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 							if (!entities || !entities.length) break;
 
 							for(const entity of entities)
-								flattenedEntities.push(flattenAndStripHtml(entity));
+							{
+								const flattenedEntity = flattenAndStripHtml(entity);
+								flattenedEntity.collection = configuration.Collection;
+								flattenedEntities.push(flattenedEntity);
+							}
+								
 
 							await index.updateDocuments(flattenedEntities);
 
@@ -143,6 +148,7 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 
 				// Add meilisearch document.
 				const flattenedEntity = flattenAndStripHtml(entity);
+				flattenedEntity.collection = configuration.Collection;
 				const task = await index.addDocuments(flattenedEntity);
 
 				// Check wether the add operation succeeded.
@@ -180,6 +186,7 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 
 				// Add meilisearch document.
 				const flattenedEntity = flattenAndStripHtml(entity);
+				flattenedEntity.collection = configuration.Collection;
 				const task = await index.updateDocuments(flattenedEntity);
 
 				// Check wether the update operation succeeded.
