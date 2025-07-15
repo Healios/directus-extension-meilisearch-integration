@@ -72,9 +72,9 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 						const pageSize = 100;
 						for(let offset = 0;;offset += pageSize)
 						{
-							const entities = await itemsService.readByQuery({ fields: configuration.Fields, filter: configuration.Filter, limit: pageSize, offset: offset }) as any;
+							const entities = await itemsService.readByQuery({ fields: configuration.Fields, filter: configuration.QueryFilter, limit: pageSize, offset: offset }) as any;
 							const flattenedEntities = [];
-							
+
 							if (!entities || !entities.length) break;
 
 							for(const entity of entities)
@@ -134,7 +134,7 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 				const entityId = meta.key;
 				
 				// Get entity from database.
-				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.Filter });
+				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.ActionFilter });
 				if (entities.length === 0) return;
 				const entity = entities[0];
 
@@ -170,7 +170,7 @@ export default defineHook(async ({ init, action }, { logger, services, getSchema
 				const index = client.index(configuration.Collection);
 
 				// Get entity from database.
-				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.Filter });
+				const entities = await itemsService.readMany([entityId], { fields: configuration.Fields, filter: configuration.ActionFilter });
 				if (entities.length === 0) {
 					// The entity no longer conforms to the specified filter, so we remove it from meilisearch.
 					await index.deleteDocument(entityId);
