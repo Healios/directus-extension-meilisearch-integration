@@ -13,7 +13,12 @@ Example collections configuration:
 ```
 [
     "collection": "pages",
-    "filter": {
+    "queryFilter": {
+        "status": {
+            "_eq": "published",
+        },
+    },
+    "actionFilter": {
         "status": "published",
     },
     "fields": [
