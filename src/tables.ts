@@ -53,7 +53,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 1,
                 "collection": "meilisearch_settings",
                 "field": "id",
                 "special": null,
@@ -99,7 +98,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": "id"
             },
             "meta": {
-                "id": 2,
                 "collection": "meilisearch_settings",
                 "field": "user_created",
                 "special": [
@@ -149,7 +147,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 3,
                 "collection": "meilisearch_settings",
                 "field": "date_created",
                 "special": [
@@ -199,7 +196,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": "id"
             },
             "meta": {
-                "id": 4,
                 "collection": "meilisearch_settings",
                 "field": "user_updated",
                 "special": [
@@ -249,7 +245,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 5,
                 "collection": "meilisearch_settings",
                 "field": "date_updated",
                 "special": [
@@ -299,7 +294,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 7,
                 "collection": "meilisearch_settings",
                 "field": "host",
                 "special": null,
@@ -348,7 +342,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 8,
                 "collection": "meilisearch_settings",
                 "field": "api_key",
                 "special": null,
@@ -397,7 +390,6 @@ export const MeilisearchSettingsTable =
                 "foreign_key_column": null
             },
             "meta": {
-                "id": 11,
                 "collection": "meilisearch_settings",
                 "field": "collections_configuration",
                 "special": [
@@ -426,7 +418,6 @@ export const MeilisearchSettingsTable =
             "type": "alias",
             "schema": null,
             "meta": {
-                "id": 6,
                 "collection": "meilisearch_settings",
                 "field": "notice-np8y8a",
                 "special": [
